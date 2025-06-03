@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {  Buttonlabel } from "../components/Button"
 import {  faAward,  faPeopleGroup, faClockRotateLeft, faHexagonNodesBolt, faBolt } from "@fortawesome/free-solid-svg-icons"
 import Image1 from "../assets/workwithus.jpg"
-import Image2 from "../assets/otj-01.webp"
+import Image2 from "../assets/team.webp"
 
 
 function About() {
