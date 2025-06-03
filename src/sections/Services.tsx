@@ -12,8 +12,9 @@ import ServiceCard, { serviceProps } from '../components/ServiceCard';
 import { faCity, faHouseChimneyWindow, faIndustry } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Buttonlabel } from '../components/Button';
-import { useState } from "react";
-import FallbackCard from "../components/FallBackCard";
+import { lazy, Suspense, useState } from "react";
+// import FallbackCard from "../components/FallBackCard";
+const FallbackCard = lazy(()=>import('../components/FallBackCard'))
 
 
 
@@ -90,7 +91,9 @@ import FallbackCard from "../components/FallBackCard";
           </div>
 
         </div>
-        {isfallback && <FallbackCard onclose={()=>setisfallback(false)}/>}
+       <Suspense fallback={<h1>loading...</h1>}>
+         {isfallback && <FallbackCard onclose={()=>setisfallback(false)}/>}
+       </Suspense>
       </div>
     );
   }

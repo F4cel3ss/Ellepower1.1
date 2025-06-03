@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect, lazy, Suspense } from "react";
 import Heroimg from "../assets/1687350836573.webp";
 import { Button } from "../components/Button";
 import Card from "../components/Card";
-import FallbackCard from "../components/FallBackCard";
+// import FallbackCard from "../components/FallBackCard";
+const FallBackCard = lazy(()=>import('../components/FallBackCard'))
 import { Link } from "react-scroll"
 
 type AboutDetails = {
@@ -103,7 +104,9 @@ function Hero() {
           })}
         </div>
       </div>
-      {isOpen && <FallbackCard onclose={()=>setisOpen(false)}/>}
+      <Suspense fallback={<h1>loading...</h1>}>
+        {isOpen && <FallBackCard onclose={()=>setisOpen(false)}/>}
+      </Suspense>
     </div>
   );
 }

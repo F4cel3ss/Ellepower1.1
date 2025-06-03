@@ -1,10 +1,11 @@
 import { faArrowLeft, faBars } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Logo from "../assets/newlogos.webp"
-import { useEffect, useRef, useState } from "react"
+import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import {Button} from "./Button"
-import FallbackCard from "./FallBackCard"
+// import FallbackCard from "./FallBackCard"
 import { Link } from "react-scroll"
+const FallbackCard = lazy(()=> import('./FallBackCard'))
 
 type navtype = {
   text : string,
@@ -105,7 +106,12 @@ function Header() {
         </div>
 
 
-       {isfallback && <FallbackCard onclose={()=>setisfallback(false)}/>}
+      <Suspense fallback={<div className="fixed inset-0 flex justify-center items-center bg-white bg-opacity-60 z-50">
+  <p>Loading...</p> {/* You can replace this with a spinner or skeleton */}
+</div>}>
+  {isfallback && <FallbackCard onclose={() => setisfallback(false)} />}
+</Suspense>
+
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import AnimationData from "../assets/Animation - 1745122746597.json"
 import Player from 'lottie-react';
-import { Button } from './Button';
 type props ={
     onclose : React.MouseEventHandler<HTMLButtonElement>
 }
@@ -41,7 +40,6 @@ useEffect(()=>{
         />
         <h2 className='mt-4 font-bold text-ctmred text-center'>503 Service Unavailable</h2>
         <p className='mt-2 text-sm text-center'>Oops! This feature isn’t available at the moment. Hang tight — we’re working on it!</p>
-        {/* <Button className={'mt-2 bg-primaryred text-white px-8 py-2 rounded-lg '} text={'Close'} onClick={onclose}  /> */}
         <button onClick={onclose} className='px-8 py-2 bg-ctmred rounded-lg mt-4 cursor-pointer text-ctmaccent'>Close</button>
       </div>
     </div>

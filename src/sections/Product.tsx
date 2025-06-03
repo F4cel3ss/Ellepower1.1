@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { Button, Buttonlabel } from '../components/Button'
 import Item from '../assets/Item'
 import ProductCard from '../components/ProductCard'
-import FallbackCard from '../components/FallBackCard'
+// import FallbackCard from '../components/FallBackCard'
+const FallBackCard = lazy(()=>import('../components/FallBackCard'))
 
 function Product() {
   const [isfallback,setisfallback] = useState<boolean>(false)
@@ -28,7 +29,9 @@ function Product() {
             )))}
       </div>
      </div>
-     {isfallback && <FallbackCard onclose={()=>setisfallback(false)} />}
+     <Suspense fallback={<h1>loading...</h1>}>
+      {isfallback && <FallBackCard onclose={()=>setisfallback(false)} />}
+     </Suspense>
     </div>
   )
 }

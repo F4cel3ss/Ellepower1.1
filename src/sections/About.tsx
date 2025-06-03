@@ -1,13 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Button, Buttonlabel } from "../components/Button"
-import Card from "../components/Card"
-import {  faAward, faClock, faPeopleGroup, faClockRotateLeft, faHexagonNodes, faHexagonNodesBolt, faBolt } from "@fortawesome/free-solid-svg-icons"
+import {  Buttonlabel } from "../components/Button"
+import {  faAward,  faPeopleGroup, faClockRotateLeft, faHexagonNodesBolt, faBolt } from "@fortawesome/free-solid-svg-icons"
 import Image1 from "../assets/workwithus.jpg"
 import Image2 from "../assets/otj-01.webp"
 
-const handleclick = ()=>{
 
-}
 function About() {
   return (
 
